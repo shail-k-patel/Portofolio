@@ -1,75 +1,274 @@
-// Initialize AOS
-AOS.init();
-
-// Vanta.GLOBE background setup
-VANTA.GLOBE({
-  el: "#vanta-bg",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: window.innerHeight * 0.7, // Ensure Vanta.js respects 70vh
-  minWidth: window.innerWidth, // Ensure Vanta.js respects 100vh
-  scale: 1,
-  scaleMobile: 1.0,
-  backgroundColor: 0x1b263b,
-  color: 0x23a7c2, // Cyan net color
-  color2: 0x707070, // Secondary grey color
-  points: 12.0,
-  maxDistance: 20.0,
-  spacing: 15.0,
-  size: 0.5,
-});
-
-// VanillaTilt initialization for buttons
-VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-  max: 15,
-  speed: 300,
-  glare: true,
-  "max-glare": 0.2,
-});
-
-// Show Skills based on Semester
-document.addEventListener("DOMContentLoaded", function () {
-  // Show default semester (4)
-  const defaultSem = 4;
-  showSkills(defaultSem);
-
-  // Show Skills based on Semester
-  function showSkills(sem) {
-    document.querySelectorAll(".college-skills-list").forEach((list) => {
-      list.classList.add("hidden"); // Hide all skill lists
-      list.classList.remove("active");
+// Smooth scrolling for navigation links
+document.addEventListener('DOMContentLoaded', function() {
+  // Navigation functionality
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sections = document.querySelectorAll('.section');
+  
+  // Update active nav link on scroll
+  function updateActiveNavLink() {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
     });
-
-    document.querySelectorAll(".semester-buttons button").forEach((button) =>
-      button.classList.remove("active")
-    );
-
-    const selectedList = document.getElementById(`college-skills-list-${sem}`);
-    const selectedButton = document.querySelector(
-      `.semester-buttons button:nth-child(${sem})`
-    );
-
-    if (selectedList) {
-      selectedList.classList.remove("hidden");
-      selectedList.classList.add("active");
-    }
-    if (selectedButton) {
-      selectedButton.classList.add("active");
-    }
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
   }
-
-  // Dynamically attach click events to buttons
-  document.querySelectorAll(".semester-buttons button").forEach((button, index) => {
-    const sem = index + 1; // Button index corresponds to semester number
-    button.addEventListener("click", () => {
-      if (!button.classList.contains("cursor-not-allowed")) {
-        showSkills(sem);
+  
+  // Smooth scroll to sections
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      
+      if (targetSection) {
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
       }
     });
   });
+  
+  // Projects horizontal scroll
+  const projectsScroll = document.querySelector('.projects-scroll');
+  const scrollLeftBtn = document.getElementById('scrollLeft');
+  const scrollRightBtn = document.getElementById('scrollRight');
+  
+  if (projectsScroll && scrollLeftBtn && scrollRightBtn) {
+    const scrollAmount = 400;
+    
+    scrollLeftBtn.addEventListener('click', () => {
+      projectsScroll.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    scrollRightBtn.addEventListener('click', () => {
+      projectsScroll.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    });
+    
+    // Update scroll button states
+    function updateScrollButtons() {
+      const { scrollLeft, scrollWidth, clientWidth } = projectsScroll;
+      scrollLeftBtn.disabled = scrollLeft <= 0;
+      scrollRightBtn.disabled = scrollLeft >= scrollWidth - clientWidth - 1;
+    }
+    
+    projectsScroll.addEventListener('scroll', updateScrollButtons);
+    updateScrollButtons(); // Initial state
+  }
+  
+  // Skills animation on scroll
+  const skillCards = document.querySelectorAll('.skill-card');
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const progressBar = entry.target.querySelector('.progress-bar');
+        if (progressBar) {
+          // Trigger progress animation
+          progressBar.style.width = '0%';
+          setTimeout(() => {
+            progressBar.style.width = progressBar.style.getPropertyValue('--progress');
+          }, 100);
+        }
+      }
+    });
+  }, observerOptions);
+  
+  skillCards.forEach(card => {
+    skillObserver.observe(card);
+  });
+  
+  // Education semester tabs
+  const semesterTabs = document.querySelectorAll('.semester-tab:not(.disabled)');
+  const skillsContainers = document.querySelectorAll('.skills-learned');
+  
+  semesterTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const semester = this.getAttribute('data-semester');
+      
+      // Update active tab
+      semesterTabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Show corresponding skills
+      skillsContainers.forEach(container => {
+        container.classList.add('hidden');
+      });
+      
+      const targetContainer = document.getElementById(`skills-semester-${semester}`);
+      if (targetContainer) {
+        targetContainer.classList.remove('hidden');
+      }
+    });
+  });
+  
+  // Parallax effect for landing section
+  const landingBg = document.querySelector('.landing-bg');
+  
+  function handleParallax() {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.5;
+    
+    if (landingBg) {
+      landingBg.style.transform = `translateY(${rate}px)`;
+    }
+  }
+  
+  // 3D tilt effect for project cards
+  const projectCards = document.querySelectorAll('.project-card');
+  
+  projectCards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 10;
+      const rotateY = (centerX - x) / 10;
+      
+      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    });
+  });
+  
+  // 3D tilt effect for skill cards
+  const skillCardsForTilt = document.querySelectorAll('.skill-card');
+  
+  skillCardsForTilt.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      const rotateX = (y - centerY) / 15;
+      const rotateY = (centerX - x) / 15;
+      
+      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(5px)`;
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+    });
+  });
+  
+  // Floating animation for profile image
+  const profileImage = document.querySelector('.profile-image');
+  if (profileImage) {
+    let floatDirection = 1;
+    setInterval(() => {
+      floatDirection *= -1;
+      profileImage.style.transform = `translateY(${floatDirection * 10}px) scale(1)`;
+    }, 3000);
+  }
+  
+  // Magnetic effect for buttons
+  const buttons = document.querySelectorAll('.btn');
+  
+  buttons.forEach(button => {
+    button.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+    
+    button.addEventListener('mouseleave', function() {
+      this.style.transform = 'translate(0px, 0px)';
+    });
+  });
+  
+  // Scroll event listeners
+  window.addEventListener('scroll', () => {
+    updateActiveNavLink();
+    handleParallax();
+  });
+  
+  // Initialize
+  updateActiveNavLink();
+  
+  // Smooth reveal animations for sections
+  const revealElements = document.querySelectorAll('.section-header, .project-card, .skill-card, .education-card');
+  
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  revealElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(50px)';
+    element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    revealObserver.observe(element);
+  });
+  
+  // Add stagger effect to skill cards
+  skillCards.forEach((card, index) => {
+    card.style.transitionDelay = `${index * 0.1}s`;
+  });
+  
+  // Cursor trail effect
+  const cursor = document.createElement('div');
+  cursor.className = 'cursor-trail';
+  cursor.style.cssText = `
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--primary-color), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.6;
+    transition: transform 0.1s ease;
+  `;
+  document.body.appendChild(cursor);
+  
+  document.addEventListener('mousemove', (e) => {
+    cursor.style.left = e.clientX - 10 + 'px';
+    cursor.style.top = e.clientY - 10 + 'px';
+  });
+  
+  // Hide cursor trail on mobile
+  if (window.innerWidth <= 768) {
+    cursor.style.display = 'none';
+  }
 });
-
 
 // Handle mailto link with Gmail fallback
 function tryMailto(mailtoUrl) {

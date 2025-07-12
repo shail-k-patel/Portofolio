@@ -22,7 +22,7 @@
     />
     <meta
       property="og:description"
-      content="Machine Learning intern passionate about solving real-world problems with AI. Explore my projects, research, and skills. Let’s build the future together."
+      content="Machine Learning intern passionate about solving real-world problems with AI. Explore my projects, research, and skills. Let's build the future together."
     />
     <meta property="og:url" content="https://shailpatel.github.io/" />
     <meta property="og:type" content="website" />
@@ -58,15 +58,6 @@
 
     <title>Shail K Patel</title>
 
-    <!-- Tailwind CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-
-    <!-- AOS Animation CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/style.css" />
 
@@ -86,1201 +77,510 @@
     />
   </head>
 
-  <body
-    class="text-white snap-y snap-mandatory overflow-y-scroll h-screen scroll-snap"
-  >
-    <section
-      id="landing"
-      class="snap-start h-screen w-full flex flex-col md:flex-row items-center justify-start md:justify-center px-6 md:px-24 gap-12 relative overflow-hidden md:text-left"
-    >
-      <!-- Background (Top 70%) -->
-      <div
-        id="vanta-bg"
-        class="absolute top-0 left-0 w-full h-[70vh] z-0"
-      ></div>
+  <body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+      <div class="nav-content">
+        <div class="nav-logo">SK</div>
+        <div class="nav-links">
+          <a href="#landing" class="nav-link active">Home</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#educations" class="nav-link">Education</a>
+        </div>
+      </div>
+    </nav>
 
-      <!-- Bottom 30% Background -->
-      <div class="absolute bottom-0 left-0 w-full h-[30vh] bg-black z-0"></div>
-
-      <!-- Content (Text and Image) -->
-      <div
-        class="relative top-10 z-10 flex flex-col md:flex-row items-center justify-center gap-12 w-full pt-12 md:pt-0"
-      >
-        <div
-          class="text-center md:text-left"
-          data-aos="fade-left"
-          data-aos-duration="800"
-          data-aos-delay="100"
-        >
-          <h1
-            id="landing-title"
-            class="text-5xl sm:text-4xl lg:text-8xl font-extrabold mb-8 leading-tight landing-heading"
-          >
-            Shail K Patel
+    <!-- Landing Section -->
+    <section id="landing" class="section landing-section">
+      <div class="landing-bg"></div>
+      <div class="landing-content">
+        <div class="landing-text">
+          <h1 class="landing-title">
+            <span class="title-line">Shail K</span>
+            <span class="title-line">Patel</span>
           </h1>
-          <p class="text-3xl sm:text-4xl lg:text-4xl mb-4 landing-text">
-            I help <span class="motto">innovators</span> solve real-world
-            problems using <span class="motto">Machine Learning</span>.<br />
-            Let’s collaborate and build something
-            <span class="italic">impactful</span>.
+          <p class="landing-subtitle">
+            I help <span class="highlight">innovators</span> solve real-world
+            problems using <span class="highlight">Machine Learning</span>.<br />
+            Let's collaborate and build something
+            <span class="highlight-italic">impactful</span>.
           </p>
+          <div class="landing-buttons">
+            <a
+              href="mailto:shailpatel.connect@gmail.com?subject=Hiring%20Inquiry:%20Machine%20Learning%20Role&body=Hi%20Shail,%20I%20came%20across%20your%20portfolio%20and%20am%20interested%20in%20discussing%20a%20potential%20opportunity.%20Can%20we%20schedule%20a%20call?"
+              class="btn btn-primary"
+            >
+              Hire Me
+            </a>
+            <a
+              href="https://www.linkedin.com/in/shail-k-patel/"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              LinkedIn
+            </a>
+            <a
+              href="http://github.com/ShailKPatel"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              GitHub
+            </a>
+            <a
+              href="assets/pdf/Shail Resume.pdf"
+              target="_blank"
+              class="btn btn-secondary"
+            >
+              Resume
+            </a>
+          </div>
         </div>
-        <!-- Profile Image (Hidden on mobile, visible on md and above, set to 100px) -->
-        <div
-          class="hidden md:block w-[400px] h-[400px] rounded-full overflow-hidden shadow-lg mx-auto md:mx-0 mt-4 md:mt-0 my-img"
-        >
-          <img
-            src="assets/images/profile-pic.png"
-            sizes="(max-width: 768px) 288px, 400px"
-            alt="Shail K Patel, Machine Learning Intern Profile Picture"
-            class="w-full h-full object-cover rounded-full"
-            loading="eager"
-          />
+        <div class="landing-image">
+          <div class="image-container">
+            <img
+              src="assets/images/profile-pic.png"
+              alt="Shail K Patel"
+              class="profile-image"
+            />
+            <div class="image-glow"></div>
+          </div>
         </div>
       </div>
-
-      <!-- Bottom 30% (Buttons) -->
-      <div
-        class="absolute bottom-16 left-0 w-full flex flex-col md:flex-row items-center justify-center gap-4 z-10 px-4 md:px-10 lg:px-20 grid grid-cols-2 md:grid-cols-4"
-      >
-        <a
-          href="mailto:shailpatel.connect@gmail.com?subject=Hiring%20Inquiry:%20Machine%20Learning%20Role&body=Hi%20Shail,%20I%20came%20across%20your%20portfolio%20and%20am%20interested%20in%20discussing%20a%20potential%20opportunity.%20Can%20we%20schedule%20a%20call?"
-          onclick="tryMailto(this.href, 'Hire Me Button'); return false;"
-          aria-label="Send an email to Shail to discuss hiring opportunities"
-          class="inline-block px-7 py-3.5 rounded-xl text-lg font-semibold shadow-xl button-glow hire-me-button"
-          data-tilt
-        >
-          Hire Me
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/shail-k-patel/"
-          target="_blank"
-          class="inline-block px-7 py-3.5 rounded-xl text-lg font-semibold shadow-xl button-glow"
-          data-tilt
-        >
-          LinkedIn
-        </a>
-
-        <a
-          href="http://github.com/ShailKPatel"
-          target="_blank"
-          class="inline-block px-7 py-3.5 rounded-xl text-lg font-semibold shadow-xl button-glow"
-          data-tilt
-        >
-          GitHub
-        </a>
-
-        <a
-          href="assets/pdf/Shail Resume.pdf"
-          target="_blank"
-          class="inline-block px-7 py-3.5 rounded-xl text-lg font-semibold shadow-xl button-glow"
-          data-tilt
-        >
-          Resume
-        </a>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
       </div>
     </section>
 
-    <!-- Project section -->
-    <section
-      id="projects"
-      class="snap-start min-h-screen w-full flex flex-col items-center justify-start px-6 md:px-24 pt-12 bg-[#121212] text-white overflow-y-auto"
-    >
-      <h2
-        class="text-6xl sm:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight text-center section-header"
-      >
-        My Projects
-      </h2>
-
-      <div class="w-full max-w-5xl flex flex-col gap-12 pb-12">
-        <!-- Project 1: PredictGrad -->
-        <div class="flex flex-col bg-[#1A1A1A] rounded-xl p-6 shadow-xl">
-          <h3 class="text-4xl md:text-5xl font-bold mb-4 sf-font">
-            PredictGrad
-            <span class="text-gray-400 text-2xl md:text-3xl ml-2"
-              >Jul 2025</span
-            >
-          </h3>
-          <ul
-            class="text-xl md:text-2xl text-gray-300 list-disc list-inside mb-6 sf-font"
-          >
-            <li>
-              Built a full ML pipeline to predict Semester 3 marks for core
-              subjects and detect students at academic risk based on percentile
-              drop.
-            </li>
-            <li>
-              Regression: Voting Regressor (Ridge + Lasso + ElasticNet);
-              Classification: Stacking (CatBoost, LGBM, ExtraTrees, Logistic
-              Regression meta).
-            </li>
-            <li>
-              Flags risk when predicted percentile falls ≥10 points from
-              previous semester; enables early academic intervention.
-            </li>
-            <li>
-              Deployed as a Streamlit app with interactive student selector,
-              risk explanation (XAI), and data insights dashboard.
-            </li>
-            <li>
-              <strong>Technologies:</strong> Python, Scikit-learn, CatBoost,
-              LightGBM, SHAP, Pandas, Streamlit, Matplotlib.
-            </li>
-          </ul>
-
-          <!-- Responsive iframe container -->
-          <div
-            class="w-full rounded-xl overflow-hidden border-[3px] border-cyan-400 shadow-md mb-6"
-            data-aos="fade-left"
-            data-aos-duration="800"
-            data-aos-delay="200"
-          >
-            <div class="block md:hidden mobile-iframe-container">
-              <!-- Mobile view -->
-              <iframe
-                src="https://predictgrad.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="PredictGrad Demo"
-              ></iframe>
-            </div>
-            <div class="hidden md:block desktop-iframe-container">
-              <!-- Desktop view -->
-              <iframe
-                src="https://predictgrad.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="PredictGrad Demo"
-              ></iframe>
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+      <div class="section-header">
+        <h2 class="section-title">My Projects</h2>
+        <div class="section-subtitle">Innovative solutions powered by AI</div>
+      </div>
+      
+      <div class="projects-container">
+        <div class="projects-scroll">
+          <!-- Project 1: PredictGrad -->
+          <div class="project-card">
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">PredictGrad</h3>
+                <span class="project-date">Jul 2025</span>
+              </div>
+              <div class="project-description">
+                <ul>
+                  <li>Built a full ML pipeline to predict Semester 3 marks for core subjects and detect students at academic risk based on percentile drop.</li>
+                  <li>Regression: Voting Regressor (Ridge + Lasso + ElasticNet); Classification: Stacking (CatBoost, LGBM, ExtraTrees, Logistic Regression meta).</li>
+                  <li>Flags risk when predicted percentile falls ≥10 points from previous semester; enables early academic intervention.</li>
+                  <li>Deployed as a Streamlit app with interactive student selector, risk explanation (XAI), and data insights dashboard.</li>
+                  <li><strong>Technologies:</strong> Python, Scikit-learn, CatBoost, LightGBM, SHAP, Pandas, Streamlit, Matplotlib.</li>
+                </ul>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://predictgrad.streamlit.app/?embed=true"
+                  title="PredictGrad Demo"
+                  class="demo-iframe"
+                ></iframe>
+              </div>
+              <a
+                href="https://predictgrad.streamlit.app/"
+                target="_blank"
+                class="project-link"
+              >
+                Try It Live →
+              </a>
             </div>
           </div>
 
-          <a
-            href="https://predictgrad.streamlit.app/"
-            target="_blank"
-            class="text-cyan-400 hover:underline text-2xl md:text-3xl text-center block sf-font"
-          >
-            Try It Live
-          </a>
+          <!-- Project 2: Beyond The Marks -->
+          <div class="project-card">
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Beyond The Marks</h3>
+                <span class="project-date">Mar 2025</span>
+              </div>
+              <div class="project-description">
+                <ul>
+                  <li>Developed an ML pipeline with explainable AI (SHAP) to analyze student performance, detect grading bias, and assess the influence of sensitive attributes (e.g., gender, religion).</li>
+                  <li>Quantified teacher effectiveness and engineered performance indicators (e.g., attendance trends, average marks) to evaluate learning outcomes.</li>
+                  <li>Used statistical methods (e.g., correlation analysis, one-hot encoding) to explore relationships among attendance, grades, and categorical student features.</li>
+                  <li><strong>Technologies:</strong> Python, Pandas, NumPy, SHAP, Scikit-learn, Matplotlib/Seaborn.</li>
+                </ul>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://beyondthemarks.streamlit.app/?embed=true"
+                  title="Beyond The Marks Demo"
+                  class="demo-iframe"
+                ></iframe>
+              </div>
+              <a
+                href="https://beyondthemarks.streamlit.app/"
+                target="_blank"
+                class="project-link"
+              >
+                Try It Live →
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3: Attend2Achieve -->
+          <div class="project-card">
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">Attend2Achieve</h3>
+                <span class="project-date">Mar 2025</span>
+              </div>
+              <div class="project-description">
+                <ul>
+                  <li>Analyzed subject attendance and marks (theory + practical) to find correlations.</li>
+                  <li>Explained performance patterns using statistical measures and visualized data with plots and heatmaps.</li>
+                  <li>Proposed subject-specific improvements and presented an overall academic insights dashboard.</li>
+                  <li><strong>Technologies:</strong> Python, Pandas, NumPy, Matplotlib, Seaborn, Streamlit.</li>
+                </ul>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://attend2achieve.streamlit.app/?embed=true"
+                  title="Attend2Achieve Demo"
+                  class="demo-iframe"
+                ></iframe>
+              </div>
+              <a
+                href="https://attend2achieve.streamlit.app/"
+                target="_blank"
+                class="project-link"
+              >
+                Try It Live →
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 4: The Profit Oracle -->
+          <div class="project-card">
+            <div class="project-content">
+              <div class="project-header">
+                <h3 class="project-title">The Profit Oracle</h3>
+                <span class="project-date">Feb 2025</span>
+              </div>
+              <div class="project-description">
+                <ul>
+                  <li>Developed a Python/ML Streamlit tool for financial analysis and revenue forecasting.</li>
+                  <li>Automated insights on returns, repeat customers, and location-based behavior.</li>
+                  <li>Compared costs vs. prices, and analyzed profit/sales by product and location using ML.</li>
+                  <li><strong>Technologies:</strong> Python, Pandas, NumPy, Scikit-learn, Streamlit, Matplotlib.</li>
+                </ul>
+              </div>
+              <div class="project-demo">
+                <iframe
+                  src="https://theprofitoracle.streamlit.app/?embed=true"
+                  title="The Profit Oracle Demo"
+                  class="demo-iframe"
+                ></iframe>
+              </div>
+              <a
+                href="https://theprofitoracle.streamlit.app/"
+                target="_blank"
+                class="project-link"
+              >
+                Try It Live →
+              </a>
+            </div>
+          </div>
         </div>
-
-        <!-- Project 2: Beyond The Marks -->
-        <div class="flex flex-col bg-[#1A1A1A] rounded-xl p-6 shadow-xl">
-          <h3 class="text-4xl md:text-5xl font-bold mb-4 sf-font">
-            Beyond The Marks
-            <span class="text-gray-400 text-2xl md:text-3xl ml-2"
-              >Mar 2025</span
-            >
-          </h3>
-          <ul
-            class="text-xl md:text-2xl text-gray-300 list-disc list-inside mb-6 sf-font"
-          >
-            <li>
-              Developed an ML pipeline with explainable AI (SHAP) to analyze
-              student performance, detect grading bias, and assess the influence
-              of sensitive attributes (e.g., gender, religion).
-            </li>
-            <li>
-              Quantified teacher effectiveness and engineered performance
-              indicators (e.g., attendance trends, average marks) to evaluate
-              learning outcomes.
-            </li>
-            <li>
-              Used statistical methods (e.g., correlation analysis, one-hot
-              encoding) to explore relationships among attendance, grades, and
-              categorical student features.
-            </li>
-            <li>
-              <strong>Technologies:</strong> Python, Pandas, NumPy, SHAP,
-              Scikit-learn, Matplotlib/Seaborn.
-            </li>
-          </ul>
-
-          <!-- Responsive iframe container -->
-          <div
-            class="w-full rounded-xl overflow-hidden border-[3px] border-cyan-400 shadow-md mb-6"
-            data-aos="fade-left"
-            data-aos-duration="800"
-            data-aos-delay="200"
-          >
-            <div class="block md:hidden mobile-iframe-container">
-              <!-- Mobile view -->
-              <iframe
-                src="https://beyondthemarks.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="Beyond The Marks Demo"
-              ></iframe>
-            </div>
-            <div class="hidden md:block desktop-iframe-container">
-              <!-- Desktop view -->
-              <iframe
-                src="https://beyondthemarks.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="Beyond The Marks Demo"
-              ></iframe>
-            </div>
-          </div>
-
-          <a
-            href="https://beyondthemarks.streamlit.app/"
-            target="_blank"
-            class="text-cyan-400 hover:underline text-2xl md:text-3xl text-center block sf-font"
-          >
-            Try It Live
-          </a>
-        </div>
-
-        <!-- Project 3: Attend2Achieve -->
-        <div class="flex flex-col bg-[#1A1A1A] rounded-xl p-6 shadow-xl">
-          <h3 class="text-4xl md:text-5xl font-bold mb-4 sf-font">
-            Attend2Achieve
-            <span class="text-gray-400 text-2xl md:text-3xl ml-2"
-              >Mar 2025</span
-            >
-          </h3>
-          <ul
-            class="text-xl md:text-2xl text-gray-300 list-disc list-inside mb-6 sf-font"
-          >
-            <li>
-              Analyzed subject attendance and marks (theory + practical) to find
-              correlations.
-            </li>
-            <li>
-              Explained performance patterns using statistical measures and
-              visualized data with plots and heatmaps.
-            </li>
-            <li>
-              Proposed subject-specific improvements and presented an overall
-              academic insights dashboard.
-            </li>
-            <li>
-              <strong>Technologies:</strong> Python, Pandas, NumPy, Matplotlib,
-              Seaborn, Streamlit.
-            </li>
-          </ul>
-
-          <!-- Responsive iframe container -->
-          <div
-            class="w-full rounded-xl overflow-hidden border-[3px] border-cyan-400 shadow-md mb-6"
-            data-aos="fade-left"
-            data-aos-duration="800"
-            data-aos-delay="200"
-          >
-            <div class="block md:hidden mobile-iframe-container">
-              <!-- Mobile view -->
-              <iframe
-                src="https://attend2achieve.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="Attend2Achieve Demo"
-              ></iframe>
-            </div>
-            <div class="hidden md:block desktop-iframe-container">
-              <!-- PC/Desktop view -->
-              <iframe
-                src="https://attend2achieve.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="Attend2Achieve Demo"
-              ></iframe>
-            </div>
-          </div>
-
-          <a
-            href="https://attend2achieve.streamlit.app/"
-            target="_blank"
-            class="text-cyan-400 hover:underline text-2xl md:text-3xl text-center block sf-font"
-          >
-            Try It Live
-          </a>
-        </div>
-
-        <!-- Project 4: The Profit Oracle -->
-        <div class="flex flex-col bg-[#1A1A1A] rounded-xl p-6 shadow-xl">
-          <h3 class="text-4xl md:text-5xl font-bold mb-4 sf-font">
-            The Profit Oracle
-            <span class="text-gray-400 text-2xl md:text-3xl ml-2"
-              >Feb 2025</span
-            >
-          </h3>
-          <ul
-            class="text-xl md:text-2xl text-gray-300 list-disc list-inside mb-6 sf-font"
-          >
-            <li>
-              Developed a Python/ML Streamlit tool for financial analysis and
-              revenue forecasting.
-            </li>
-            <li>
-              Automated insights on returns, repeat customers, and
-              location-based behavior.
-            </li>
-            <li>
-              Compared costs vs. prices, and analyzed profit/sales by product
-              and location using ML.
-            </li>
-            <li>
-              <strong>Technologies:</strong> Python, Pandas, NumPy,
-              Scikit-learn, Streamlit, Matplotlib.
-            </li>
-          </ul>
-
-          <!-- Responsive iframe container -->
-          <div
-            class="w-full rounded-xl overflow-hidden border-[3px] border-cyan-400 shadow-md mb-6"
-            data-aos="fade-left"
-            data-aos-duration="800"
-            data-aos-delay="200"
-          >
-            <div class="block md:hidden mobile-iframe-container">
-              <!-- Mobile view -->
-              <iframe
-                src="https://theprofitoracle.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="The Profit Oracle Demo"
-              ></iframe>
-            </div>
-            <div class="hidden md:block desktop-iframe-container">
-              <!-- Desktop view -->
-              <iframe
-                src="https://theprofitoracle.streamlit.app/?embed=true"
-                class="w-full h-full"
-                allowfullscreen
-                title="The Profit Oracle Demo"
-              ></iframe>
-            </div>
-          </div>
-
-          <a
-            href="https://theprofitoracle.streamlit.app/"
-            target="_blank"
-            class="text-cyan-400 hover:underline text-2xl md:text-3xl text-center block sf-font"
-          >
-            Try It Live
-          </a>
+        
+        <div class="scroll-controls">
+          <button class="scroll-btn scroll-left" id="scrollLeft">‹</button>
+          <button class="scroll-btn scroll-right" id="scrollRight">›</button>
         </div>
       </div>
     </section>
 
-    <!-- research section -->
-    <!-- <section
-      id="research"
-      class="snap-start h-screen w-full flex flex-col items-center justify-center px-6 md:px-24 bg-[#121212] text-b;"
-    >
-      <h2
-        class="text-6xl sm:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight text-center section-header"
-      >
-        Research
-      </h2>
-
-      <div class="w-full max-w-5xl flex flex-col items-center gap-6">
-        <h3 class="text-2xl md:text-3xl font-bold text-center sf-font">
-          Comparative Analysis of Bias Detection Methods for Educational
-          Datasets: Evaluating Performance Across Diverse Bias Types
-        </h3>
-        <div class="w-full max-w-[450px] relative padding-b">
-          <div
-            class="absolute inset-0 bg-white flex items-center justify-center rounded-lg shadow-lg border border-gray-200"
-          >
-            <p class="text-2xl md:text-3xl font-semibold text-black sf-font">
-              Coming Soon
-            </p>
-          </div>
-        </div>
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-subtitle">Technologies I work with</div>
       </div>
-    </section> -->
-
-    <!-- skills section -->
-    <section
-      id="skills"
-      class="snap-start min-h-screen w-full flex flex-col items-center justify-center px-6 md:px-24 bg-[#121212] text-white"
-    >
-      <h2
-        class="text-6xl sm:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight text-center section-header"
-      >
-        Skills
-      </h2>
-
-      <div
-        class="ww-[50%] max-w-5xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 md:gap-12"
-      >
-        <!-- Skill 1: Supervised Machine Learning -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 70) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <!-- removed rounded-full from img class -->
-            <img
-              src="assets/images/logo/supervised_learning.png"
-              alt="Supervised Machine Learning"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 70%
-            </p>
+      
+      <div class="skills-grid">
+        <div class="skill-card" data-skill="70">
+          <div class="skill-icon">
+            <img src="assets/images/logo/supervised_learning.png" alt="Supervised Machine Learning" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Supervised Machine Learning
-          </span>
+          <div class="skill-info">
+            <h3>Supervised Machine Learning</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 70%"></div>
+            </div>
+            <span class="skill-percentage">70%</span>
+          </div>
         </div>
 
-        <!-- Skill 2: Unsupervised Machine Learning -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="150"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 68) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <!-- rounded-full -->
-
-            <img
-              src="assets/images/logo/unsupervised_learning.png"
-              alt="Unsupervised Machine Learning"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 68%
-            </p>
+        <div class="skill-card" data-skill="68">
+          <div class="skill-icon">
+            <img src="assets/images/logo/unsupervised_learning.png" alt="Unsupervised Machine Learning" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Unsupervised Machine Learning
-          </span>
+          <div class="skill-info">
+            <h3>Unsupervised Machine Learning</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 68%"></div>
+            </div>
+            <span class="skill-percentage">68%</span>
+          </div>
         </div>
 
-        <!-- Skill 3: Reinforcement Learning -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 65) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <!-- removed rounded-full from img class -->
-
-            <img
-              src="assets/images/logo/reinforcement_learning.png"
-              alt="Reinforcement Learning"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 65%
-            </p>
+        <div class="skill-card" data-skill="65">
+          <div class="skill-icon">
+            <img src="assets/images/logo/reinforcement_learning.png" alt="Reinforcement Learning" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Reinforcement Learning
-          </span>
+          <div class="skill-info">
+            <h3>Reinforcement Learning</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 65%"></div>
+            </div>
+            <span class="skill-percentage">65%</span>
+          </div>
         </div>
 
-        <!-- Skill 4: Deep Learning -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="250"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 80) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/deep_learning.png"
-              alt="Deep Learning"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 80%
-            </p>
+        <div class="skill-card" data-skill="80">
+          <div class="skill-icon">
+            <img src="assets/images/logo/deep_learning.png" alt="Deep Learning" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Deep Learning
-          </span>
+          <div class="skill-info">
+            <h3>Deep Learning</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 80%"></div>
+            </div>
+            <span class="skill-percentage">80%</span>
+          </div>
         </div>
 
-        <!-- Skill 5: Neural Networks -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 75) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/neural_networks.png"
-              alt="Neural Networks"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 75%
-            </p>
+        <div class="skill-card" data-skill="75">
+          <div class="skill-icon">
+            <img src="assets/images/logo/neural_networks.png" alt="Neural Networks" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Neural Networks
-          </span>
+          <div class="skill-info">
+            <h3>Neural Networks</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 75%"></div>
+            </div>
+            <span class="skill-percentage">75%</span>
+          </div>
         </div>
 
-        <!-- Skill 6: TensorFlow -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="350"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 60) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/TensorFlow.png"
-              alt="TensorFlow"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 60%
-            </p>
+        <div class="skill-card" data-skill="60">
+          <div class="skill-icon">
+            <img src="assets/images/logo/TensorFlow.png" alt="TensorFlow" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            TensorFlow
-          </span>
+          <div class="skill-info">
+            <h3>TensorFlow</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 60%"></div>
+            </div>
+            <span class="skill-percentage">60%</span>
+          </div>
         </div>
 
-        <!-- Skill 7: Scikit-Learn -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 70) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/scikit-learn.png"
-              alt="Scikit-Learn"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 70%
-            </p>
+        <div class="skill-card" data-skill="70">
+          <div class="skill-icon">
+            <img src="assets/images/logo/scikit-learn.png" alt="Scikit-Learn" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Scikit-Learn
-          </span>
+          <div class="skill-info">
+            <h3>Scikit-Learn</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 70%"></div>
+            </div>
+            <span class="skill-percentage">70%</span>
+          </div>
         </div>
 
-        <!-- Skill 8: Streamlit -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="450"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 68) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/streamlit.png"
-              alt="Streamlit"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 68%
-            </p>
+        <div class="skill-card" data-skill="68">
+          <div class="skill-icon">
+            <img src="assets/images/logo/streamlit.png" alt="Streamlit" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Streamlit
-          </span>
+          <div class="skill-info">
+            <h3>Streamlit</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 68%"></div>
+            </div>
+            <span class="skill-percentage">68%</span>
+          </div>
         </div>
 
-        <!-- Skill 9: MERN -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="500"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 70) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/MERN.png"
-              alt="MERN"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 70%
-            </p>
+        <div class="skill-card" data-skill="70">
+          <div class="skill-icon">
+            <img src="assets/images/logo/MERN.png" alt="MERN" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            MERN
-          </span>
+          <div class="skill-info">
+            <h3>MERN</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 70%"></div>
+            </div>
+            <span class="skill-percentage">70%</span>
+          </div>
         </div>
 
-        <!-- Skill 10: Bootstrap -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="550"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 65) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/bootstrap.png"
-              alt="Bootstrap"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 65%
-            </p>
+        <div class="skill-card" data-skill="65">
+          <div class="skill-icon">
+            <img src="assets/images/logo/bootstrap.png" alt="Bootstrap" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Bootstrap
-          </span>
+          <div class="skill-info">
+            <h3>Bootstrap</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 65%"></div>
+            </div>
+            <span class="skill-percentage">65%</span>
+          </div>
         </div>
 
-        <!-- Skill 11: Tailwind -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="600"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 68) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/Tailwind.png"
-              alt="Tailwind"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 68%
-            </p>
+        <div class="skill-card" data-skill="68">
+          <div class="skill-icon">
+            <img src="assets/images/logo/Tailwind.png" alt="Tailwind" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Tailwind
-          </span>
+          <div class="skill-info">
+            <h3>Tailwind</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 68%"></div>
+            </div>
+            <span class="skill-percentage">68%</span>
+          </div>
         </div>
 
-        <!-- Skill 12: EcmaScript -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="650"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 75) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/ecmascript.png"
-              alt="EcmaScript"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 75%
-            </p>
+        <div class="skill-card" data-skill="75">
+          <div class="skill-icon">
+            <img src="assets/images/logo/ecmascript.png" alt="EcmaScript" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            EcmaScript
-          </span>
+          <div class="skill-info">
+            <h3>EcmaScript</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 75%"></div>
+            </div>
+            <span class="skill-percentage">75%</span>
+          </div>
         </div>
 
-        <!-- Skill 13: MySQL -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="700"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 70) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <!-- removed rounded-full from img class -->
-            <img
-              src="assets/images/logo/mysql.png"
-              alt="MySQL"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 70%
-            </p>
+        <div class="skill-card" data-skill="70">
+          <div class="skill-icon">
+            <img src="assets/images/logo/mysql.png" alt="MySQL" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            MySQL
-          </span>
+          <div class="skill-info">
+            <h3>MySQL</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 70%"></div>
+            </div>
+            <span class="skill-percentage">70%</span>
+          </div>
         </div>
 
-        <!-- Skill 14: PostgreSQL -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="750"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 68) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/postgressql.png"
-              alt="PostgreSQL"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 68%
-            </p>
+        <div class="skill-card" data-skill="68">
+          <div class="skill-icon">
+            <img src="assets/images/logo/postgressql.png" alt="PostgreSQL" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            PostgreSQL
-          </span>
+          <div class="skill-info">
+            <h3>PostgreSQL</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 68%"></div>
+            </div>
+            <span class="skill-percentage">68%</span>
+          </div>
         </div>
 
-        <!-- Skill 15: Java -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="800"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 65) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/java.png"
-              alt="Java"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 65%
-            </p>
+        <div class="skill-card" data-skill="65">
+          <div class="skill-icon">
+            <img src="assets/images/logo/java.png" alt="Java" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Java
-          </span>
+          <div class="skill-info">
+            <h3>Java</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 65%"></div>
+            </div>
+            <span class="skill-percentage">65%</span>
+          </div>
         </div>
 
-        <!-- Skill 16: Git -->
-        <div
-          class="relative flex flex-col items-center group"
-          data-aos="fade-up"
-          data-aos-delay="850"
-        >
-          <div class="relative w-32 md:w-30 md:h-30">
-            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
-              <circle
-                cx="50"
-                cy="50"
-                r="47"
-                fill="none"
-                stroke="var(--heading-color)"
-                stroke-width="6"
-                stroke-dasharray="295"
-                stroke-dashoffset="calc(295 - (295 * 75) / 100)"
-                class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              />
-            </svg>
-            <img
-              src="assets/images/logo/git.png"
-              alt="Git"
-              class="w-full h-full object-contain transition-all duration-300 group-hover:blur-sm group-hover:opacity-50 group-hover:scale-105"
-            />
-            <p
-              class="absolute inset-0 flex items-center justify-center text-center text-sm md:text-base font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-            >
-              Proficiency: 75%
-            </p>
+        <div class="skill-card" data-skill="75">
+          <div class="skill-icon">
+            <img src="assets/images/logo/git.png" alt="Git" />
           </div>
-          <span
-            class="mt-2 text-base md:text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 sf-font"
-          >
-            Git
-          </span>
+          <div class="skill-info">
+            <h3>Git</h3>
+            <div class="skill-progress">
+              <div class="progress-bar" style="--progress: 75%"></div>
+            </div>
+            <span class="skill-percentage">75%</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Educations Section -->
-    <section
-      id="educations"
-      class="snap-start min-h-screen w-full flex flex-col items-center justify-start px-6 md:px-24 pt-12 bg-[#121212] text-white overflow-y-auto"
-    >
-      <h2
-        class="text-6xl sm:text-7xl lg:text-8xl font-extrabold mb-12 leading-tight text-center section-header"
-      >
-        Educations
-      </h2>
-      <div class="institute flex flex-col items-center mb-12">
-        <img
-          src="assets/images/logo/lj-logo.png"
-          alt="College Logo"
-          class="w-1/4 mb-4"
-        />
-        <h2 class="text-lg md:text-2xl font-semibold">
-          Bachelor of Engineering in AI & ML
-        </h2>
-
-        <p class="year text-lg text-gray-600">2023 - 2027</p>
+    <!-- Education Section -->
+    <section id="educations" class="section education-section">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <div class="section-subtitle">Academic journey and achievements</div>
       </div>
-      <div
-        class="semester-buttons flex flex-wrap justify-center gap-4 mb-12 mx-auto max-w-full"
-      >
-        <button
-          onclick="showSkills(1)"
-          class="px-4 py-2 bg-blue-600 text-white rounded-lg active:scale-105"
-        >
-          Semester - 1
-        </button>
-        <button
-          onclick="showSkills(2)"
-          class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-800"
-        >
-          Semester - 2
-        </button>
-        <button
-          onclick="showSkills(3)"
-          class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-800"
-        >
-          Semester - 3
-        </button>
-        <button
-          onclick="showSkills(4)"
-          class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-800"
-        >
-          Semester - 4
-        </button>
-        <button
-          class="px-4 py-2 bg-red-500 text-grey rounded-lg cursor-not-allowed opacity-70"
-        >
-          Semester - 5
-        </button>
-        <button
-          class="px-4 py-2 bg-red-500 text-grey rounded-lg cursor-not-allowed opacity-70"
-        >
-          Semester - 6
-        </button>
-        <button
-          class="px-4 py-2 bg-red-500 text-grey rounded-lg cursor-not-allowed opacity-70"
-        >
-          Semester - 7
-        </button>
-        <button
-          class="px-4 py-2 bg-red-500 text-grey rounded-lg cursor-not-allowed opacity-70"
-        >
-          Semester - 8
-        </button>
+      
+      <div class="education-content">
+        <div class="education-card">
+          <div class="education-header">
+            <img src="assets/images/logo/lj-logo.png" alt="College Logo" class="college-logo" />
+            <div class="education-info">
+              <h3>Bachelor of Engineering in AI & ML</h3>
+              <p class="education-year">2023 - 2027</p>
+            </div>
+          </div>
+          
+          <div class="semester-tabs">
+            <button class="semester-tab active" data-semester="1">Semester 1</button>
+            <button class="semester-tab" data-semester="2">Semester 2</button>
+            <button class="semester-tab" data-semester="3">Semester 3</button>
+            <button class="semester-tab" data-semester="4">Semester 4</button>
+            <button class="semester-tab disabled">Semester 5</button>
+            <button class="semester-tab disabled">Semester 6</button>
+            <button class="semester-tab disabled">Semester 7</button>
+            <button class="semester-tab disabled">Semester 8</button>
+          </div>
+          
+          <div class="semester-content">
+            <h4>Skills Learned</h4>
+            <div class="skills-learned" id="skills-semester-1">
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">Software Engineering</span>
+              <span class="skill-tag">Mathematics-1</span>
+              <span class="skill-tag">Physics</span>
+              <span class="skill-tag">IoT</span>
+              <span class="skill-tag">Computer Hardware</span>
+            </div>
+            <div class="skills-learned hidden" id="skills-semester-2">
+              <span class="skill-tag">Advanced Java</span>
+              <span class="skill-tag">PostgreSQL</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">Mathematics-2</span>
+              <span class="skill-tag">Data Structures</span>
+              <span class="skill-tag">Fundamentals of Electronics</span>
+            </div>
+            <div class="skills-learned hidden" id="skills-semester-3">
+              <span class="skill-tag">Web Development</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Probability and Statistics</span>
+            </div>
+            <div class="skills-learned hidden" id="skills-semester-4">
+              <span class="skill-tag">Theory of Computation</span>
+              <span class="skill-tag">Computer Organization</span>
+              <span class="skill-tag">Discrete Mathematics</span>
+              <span class="skill-tag">MERN Stack</span>
+              <span class="skill-tag">Supervised Machine Learning</span>
+              <span class="skill-tag">Advanced Python</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <h3 class="text-2xl font-semibold mb-8 text-center">Skills Learned</h3>
-      <ul
-        id="college-skills-list-1"
-        class="college-skills-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 hidden mx-auto max-w-3xl"
-      >
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">Java</li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Software Engineering
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Mathematics-1
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Physics
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">IoT</li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Computer Hardware
-        </li>
-      </ul>
-      <ul
-        id="college-skills-list-2"
-        class="college-skills-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 hidden mx-auto max-w-3xl"
-      >
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Advanced Java
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          PostgreSQL
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          MySQL
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Mathematics-2
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Data Structures
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Fundamentals of Electronics
-        </li>
-      </ul>
-      <ul
-        id="college-skills-list-3"
-        class="college-skills-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 hidden mx-auto max-w-3xl"
-      >
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Web Development
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Python
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Probability and Statistics
-        </li>
-      </ul>
-      <ul
-        id="college-skills-list-4"
-        class="college-skills-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 hidden mx-auto max-w-3xl"
-      >
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Theory of Computation
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Computer Organization
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Discrete Mathematics
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          MERN Stack
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Supervised Machine Learning
-        </li>
-        <li class="p-2 bg-green-500 text-white rounded-lg text-center">
-          Advanced Python
-        </li>
-      </ul>
     </section>
 
-    <!-- Scripts for AOS + Vanta -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.globe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.trunk.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
