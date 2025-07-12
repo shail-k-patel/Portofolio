@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelector('.projects-container').appendChild(indicatorsContainer);
   
   function updateProjectDisplay() {
-    const cardWidth = projectCards[0].offsetWidth + 64; // card width + gap
+    const cardWidth = projectCards[0].offsetWidth + 80; // card width + gap + buffer
     const translateX = -currentProjectIndex * cardWidth;
     
     projectsScroll.style.transform = `translateX(${translateX}px)`;
@@ -90,20 +90,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!nextProject()) {
           // At last project, continue normal scroll
           projectScrollLocked = false;
-          window.scrollBy(0, 100);
+          window.scrollBy(0, 150);
         }
       } else {
         // Scrolling up
         if (!prevProject()) {
           // At first project, continue normal scroll
           projectScrollLocked = false;
-          window.scrollBy(0, -100);
+          window.scrollBy(0, -150);
         }
       }
       
       scrollTimeout = setTimeout(() => {
         projectScrollLocked = false;
-      }, 800);
+      }, 1200);
     }
   }, { passive: false });
   

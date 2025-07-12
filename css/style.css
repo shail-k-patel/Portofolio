@@ -107,7 +107,7 @@ body {
 
 .nav-logo {
   font-family: 'Cabin Sketch', cursive;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -444,15 +444,15 @@ body {
   display: flex;
   gap: 4rem;
   transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  padding: 2rem 10vw;
+  padding: 2rem 15vw;
   will-change: transform;
   transform-style: preserve-3d;
 }
 
 .project-card {
-  flex: 0 0 70vw;
+  flex: 0 0 75vw;
   max-width: 800px;
-  height: 70vh;
+  height: 75vh;
   background: var(--bg-card);
   border-radius: 20px;
   padding: 2.5rem;
@@ -921,8 +921,8 @@ body {
   }
   
   .project-card {
-    flex: 0 0 85vw;
-    height: 75vh;
+    flex: 0 0 80vw;
+    height: 70vh;
     padding: 2rem;
   }
   
@@ -931,7 +931,7 @@ body {
   }
   
   .nav-logo {
-    font-size: 1rem;
+    font-size: 1.3rem;
   }
 }
 
@@ -953,7 +953,7 @@ body {
   }
   
   .nav-logo {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   
   .landing-buttons {
@@ -966,8 +966,8 @@ body {
   }
   
   .project-card {
-    flex: 0 0 90vw;
-    height: 80vh;
+    flex: 0 0 85vw;
+    height: 75vh;
     padding: 2rem;
   }
   
