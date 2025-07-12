@@ -146,14 +146,14 @@ document.addEventListener('DOMContentLoaded', function() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = (y - centerY) / 10;
-      const rotateY = (centerX - x) / 10;
+      const rotateX = (y - centerY) / 20;
+      const rotateY = (centerX - x) / 20;
       
-      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
     });
     
     card.addEventListener('mouseleave', function() {
-      this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)';
+      this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
     });
   });
   
