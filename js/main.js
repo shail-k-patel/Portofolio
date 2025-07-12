@@ -1,11 +1,148 @@
 // Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
+  // Project horizontal scrolling system
+  let currentProjectIndex = 0;
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectsScroll = document.querySelector('.projects-scroll');
+  const projectsSection = document.querySelector('.projects-section');
+  let isInProjectsSection = false;
+  let projectScrollLocked = false;
+  
+  // Create project indicators
+  const indicatorsContainer = document.createElement('div');
+  indicatorsContainer.className = 'project-indicators';
+  projectCards.forEach((_, index) => {
+    const dot = document.createElement('div');
+    dot.className = `project-dot ${index === 0 ? 'active' : ''}`;
+    dot.addEventListener('click', () => goToProject(index));
+    indicatorsContainer.appendChild(dot);
+  });
+  document.querySelector('.projects-container').appendChild(indicatorsContainer);
+  
+  function updateProjectDisplay() {
+    const cardWidth = projectCards[0].offsetWidth + 64; // card width + gap
+    const translateX = -currentProjectIndex * cardWidth;
+    
+    projectsScroll.style.transform = `translateX(${translateX}px)`;
+    
+    // Update active states
+    projectCards.forEach((card, index) => {
+      card.classList.toggle('active', index === currentProjectIndex);
+    });
+    
+    // Update indicators
+    document.querySelectorAll('.project-dot').forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentProjectIndex);
+    });
+  }
+  
+  function goToProject(index) {
+    if (index >= 0 && index < projectCards.length) {
+      currentProjectIndex = index;
+      updateProjectDisplay();
+    }
+  }
+  
+  function nextProject() {
+    if (currentProjectIndex < projectCards.length - 1) {
+      currentProjectIndex++;
+      updateProjectDisplay();
+      return true;
+    }
+    return false;
+  }
+  
+  function prevProject() {
+    if (currentProjectIndex > 0) {
+      currentProjectIndex--;
+      updateProjectDisplay();
+      return true;
+    }
+    return false;
+  }
+  
+  // Check if we're in projects section
+  function checkProjectsSection() {
+    const rect = projectsSection.getBoundingClientRect();
+    const inSection = rect.top <= 100 && rect.bottom >= 100;
+    
+    if (inSection !== isInProjectsSection) {
+      isInProjectsSection = inSection;
+      if (isInProjectsSection) {
+        updateProjectDisplay();
+      }
+    }
+  }
+  
+  // Enhanced scroll handling for projects
+  let scrollTimeout;
+  window.addEventListener('wheel', (e) => {
+    checkProjectsSection();
+    
+    if (isInProjectsSection && !projectScrollLocked) {
+      e.preventDefault();
+      
+      clearTimeout(scrollTimeout);
+      projectScrollLocked = true;
+      
+      if (e.deltaY > 0) {
+        // Scrolling down
+        if (!nextProject()) {
+          // At last project, continue normal scroll
+          projectScrollLocked = false;
+          window.scrollBy(0, 100);
+        }
+      } else {
+        // Scrolling up
+        if (!prevProject()) {
+          // At first project, continue normal scroll
+          projectScrollLocked = false;
+          window.scrollBy(0, -100);
+        }
+      }
+      
+      scrollTimeout = setTimeout(() => {
+        projectScrollLocked = false;
+      }, 800);
+    }
+  }, { passive: false });
+  
+  // Touch support for mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  projectsSection.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  projectsSection.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+  
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextProject();
+      } else {
+        prevProject();
+      }
+    }
+  }
+  
+  // Initialize first project as active
+  updateProjectDisplay();
+  
   // Navigation functionality
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.section');
   
   // Update active nav link on scroll
   function updateActiveNavLink() {
+    checkProjectsSection();
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -38,39 +175,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  
-  // Projects horizontal scroll
-  const projectsScroll = document.querySelector('.projects-scroll');
-  const scrollLeftBtn = document.getElementById('scrollLeft');
-  const scrollRightBtn = document.getElementById('scrollRight');
-  
-  if (projectsScroll && scrollLeftBtn && scrollRightBtn) {
-    const scrollAmount = 400;
-    
-    scrollLeftBtn.addEventListener('click', () => {
-      projectsScroll.scrollBy({
-        left: -scrollAmount,
-        behavior: 'smooth'
-      });
-    });
-    
-    scrollRightBtn.addEventListener('click', () => {
-      projectsScroll.scrollBy({
-        left: scrollAmount,
-        behavior: 'smooth'
-      });
-    });
-    
-    // Update scroll button states
-    function updateScrollButtons() {
-      const { scrollLeft, scrollWidth, clientWidth } = projectsScroll;
-      scrollLeftBtn.disabled = scrollLeft <= 0;
-      scrollRightBtn.disabled = scrollLeft >= scrollWidth - clientWidth - 1;
-    }
-    
-    projectsScroll.addEventListener('scroll', updateScrollButtons);
-    updateScrollButtons(); // Initial state
-  }
   
   // Skills animation on scroll
   const skillCards = document.querySelectorAll('.skill-card');
@@ -135,9 +239,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // 3D tilt effect for project cards
-  const projectCards = document.querySelectorAll('.project-card');
+  const projectCardsForTilt = document.querySelectorAll('.project-card');
   
-  projectCards.forEach(card => {
+  projectCardsForTilt.forEach(card => {
     card.addEventListener('mousemove', function(e) {
       const rect = this.getBoundingClientRect();
       const x = e.clientX - rect.left;
@@ -146,14 +250,20 @@ document.addEventListener('DOMContentLoaded', function() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
       
-      const rotateX = (y - centerY) / 20;
-      const rotateY = (centerX - x) / 20;
+      const rotateX = (y - centerY) / 30;
+      const rotateY = (centerX - x) / 30;
       
-      this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
+      if (this.classList.contains('active')) {
+        this.style.transform = `translateZ(50px) scale(1.05) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
     });
     
     card.addEventListener('mouseleave', function() {
-      this.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)';
+      if (this.classList.contains('active')) {
+        this.style.transform = 'translateZ(50px) scale(1.05)';
+      } else {
+        this.style.transform = 'translateZ(-30px) scale(0.95)';
+      }
     });
   });
   
